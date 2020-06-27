@@ -9,20 +9,34 @@ function updateSubtotal(product) {
   const subtotal = product.querySelector(".subtotal span"); //pas innerHTML car on pointe la span, on ne va pas chercher le texte
   let result = price * quantity;
   subtotal.innerHTML = result; //pointe l'interieur où ajouter le texte
+  return result
 }
 
 function calculateAll() {
   // code in the following two lines is added just for testing purposes.
   // it runs when only iteration 1 is completed. at later point, it can be removed.
-  const singleProduct = document.querySelector(".product");
-  updateSubtotal(singleProduct);
+  // const singleProduct = document.querySelector(".product");
+  // updateSubtotal(singleProduct);
   // end of test
 
   // ITERATION 2
   //... your code goes here
+  const products = document.getElementsByClassName("product")
+  // [ product1, product2 ]
+  let sumTotal = 0
+  
+  for (let i = 0; i < products.length; i++){
+     // = 0 + 25 * 2
+     // sumTotal = 50
+     // = 50 + 45 * 1
+     // sumTotal = 95
+
+    sumTotal = sumTotal + updateSubtotal(products[i])
+  }
 
   // ITERATION 3
-  //... your code goes here
+  document.querySelector("#total-value span").innerHTML = sumTotal 
+  return sumTotal
 }
 
 // ITERATION 4
