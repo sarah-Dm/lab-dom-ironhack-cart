@@ -6,9 +6,9 @@ function updateSubtotal(product) {
   //... your code goes here
   const price = Number(product.querySelector(".price span").innerHTML);
   const quantity = Number(product.querySelector(".quantity input").value); // balise html.value
-  const subtotal = product.querySelector(".subtotal span").innerHTML;
-  subtotal = price * quantity;
-  return subtotal;
+  const subtotal = product.querySelector(".subtotal span"); //pas innerHTML car on pointe la span, on ne va pas chercher le texte
+  let result = price * quantity;
+  subtotal.innerHTML = result; //pointe l'interieur où ajouter le texte
 }
 
 function calculateAll() {
