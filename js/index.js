@@ -9,7 +9,7 @@ function updateSubtotal(product) {
   const subtotal = product.querySelector(".subtotal span"); //pas innerHTML car on pointe la span, on ne va pas chercher le texte
   let result = price * quantity;
   subtotal.innerHTML = result; //pointe l'interieur où ajouter le texte
-  return result
+  return result;
 }
 
 function calculateAll() {
@@ -21,31 +21,34 @@ function calculateAll() {
 
   // ITERATION 2
   //... your code goes here
-  const products = document.getElementsByClassName("product")
+  const products = document.getElementsByClassName("product");
   // [ product1, product2 ]
-  let sumTotal = 0
-  
-  for (let i = 0; i < products.length; i++){
-     // = 0 + 25 * 2
-     // sumTotal = 50
-     // = 50 + 45 * 1
-     // sumTotal = 95
+  let sumTotal = 0;
 
-    sumTotal = sumTotal + updateSubtotal(products[i])
+  for (let i = 0; i < products.length; i++) {
+    // = 0 + 25 * 2
+    // sumTotal = 50
+    // = 50 + 45 * 1
+    // sumTotal = 95
+
+    sumTotal = sumTotal + updateSubtotal(products[i]);
   }
 
   // ITERATION 3
-  document.querySelector("#total-value span").innerHTML = sumTotal 
-  return sumTotal
+  document.querySelector("#total-value span").innerHTML = sumTotal;
+  return sumTotal;
 }
 
 // ITERATION 4
 
 function removeProduct(event) {
-  const target = event.currentTarget;
+  const target = event.currentTarget; //bouton sur lequel on a cliqué
   console.log("The target in remove is:", target);
   //... your code goes here
+  target.parentNode.removeChild();
 }
+
+window.addEventListener("click", removeProduct);
 
 // ITERATION 5
 
